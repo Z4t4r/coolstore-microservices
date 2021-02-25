@@ -3,11 +3,14 @@ kind: Component
 metadata:
   name: statestore
 spec:
-  type: state.redis
+  type: state.mysql
+  version: v1
   metadata:
-  - name: redisHost
-    value: localhost:6379
-  - name: redisPassword
-    value: ""
+  - name: connectionString
+    value: "printer:123qwe!@#@tcp(rm-wz9f1jcr5466b42415o.mysql.rds.aliyuncs.com:3306)/?allowNativePasswords=true"
+  - name: schemaName
+    value: "printerdevtestw"
+  - name: tableName
+    value: "statestore"
   - name: actorStateStore
-    value: "false"
+    value: "true"

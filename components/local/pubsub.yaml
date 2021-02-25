@@ -1,11 +1,15 @@
 apiVersion: dapr.io/v1alpha1
 kind: Component
 metadata:
-  name: pubsub
+  name: commonpubsub
+  namespace: default
 spec:
-  type: pubsub.redis
+  type: pubsub.azure.servicebus
+  version: v1
   metadata:
-  - name: redisHost
-    value: localhost:6379
-  - name: redisPassword
-    value: ""
+  - name: connectionString
+    value: Endpoint=sb://vanillabus.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=LmUNzwDQTH431Q+E80HLvTB7aealU9VJwnF+uR6dqRQ=
+  - name: lockDurationInSec
+    value: 60
+  - name: lockRenewalInSec
+    value: 30

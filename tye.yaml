@@ -11,19 +11,7 @@ extensions:
 
 services:
 
-- name: postgres
-  image:  postgres
-  env:
-  - name: POSTGRES_PASSWORD
-    value: "P@ssw0rd"
-  bindings:
-  - port: 5432
-    connectionString: Server=${host};Port=${port};User Id=postgres;Password=${env:POSTGRES_PASSWORD};
 
-- name: redis
-  image: redis
-  bindings:
-  - port: 6379
 
 - name: placement
   image: daprio/dapr
@@ -44,16 +32,16 @@ services:
 - name: inventoryapp
   project: src/Services/Inventory/InventoryService.Api/InventoryService.Api.csproj
   env:
-  - name: ConnectionStrings__postgres
-    value: Server=postgresql;Port=5432;Database=postgres;User Id=postgres;Password=P@ssw0rd;
+  - name: ConnectionStrings__mysql
+    value: Server=rm-wz9f1jcr5466b42415o.mysql.rds.aliyuncs.com;Database=printerdevtestw;Uid=printer;Pwd=123qwe!@#;persistsecurityinfo=True;Character Set=utf8;
   bindings:
   - port: 5002
 
 - name: productcatalogapp
   project: src/Services/ProductCatalog/ProductCatalogService.Api/ProductCatalogService.Api.csproj
   env:
-  - name: ConnectionStrings__postgres
-    value: Server=postgresql;Port=5432;Database=postgres;User Id=postgres;Password=P@ssw0rd;
+  - name: ConnectionStrings__mysql
+    value: Server=rm-wz9f1jcr5466b42415o.mysql.rds.aliyuncs.com;Database=printerdevtestw;Uid=printer;Pwd=123qwe!@#;persistsecurityinfo=True;Character Set=utf8;
   - name: ElasticSearch__Url
     value: http://localhost:9200
   bindings:
@@ -67,8 +55,8 @@ services:
 - name: saleapp
   project: src/Services/Sale/SaleService.Api/SaleService.Api.csproj
   env:
-  - name: ConnectionStrings__postgres
-    value: Server=postgresql;Port=5432;Database=postgres;User Id=postgres;Password=P@ssw0rd;
+  - name: ConnectionStrings__mysql
+    value: Server=rm-wz9f1jcr5466b42415o.mysql.rds.aliyuncs.com;Database=printerdevtestw;Uid=printer;Pwd=123qwe!@#;persistsecurityinfo=True;Character Set=utf8;
   bindings:
   - port: 5005
 

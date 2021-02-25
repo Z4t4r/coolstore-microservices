@@ -12,7 +12,7 @@ namespace N8T.Infrastructure.EfCore
         public TDbContext CreateDbContext(string[] args)
         {
             var connString = ConfigurationHelper.GetConfiguration(AppContext.BaseDirectory)
-                ?.GetConnectionString("postgres");
+                ?.GetConnectionString("mysql");
 
             Console.WriteLine($"Connection String: {connString}");
 
