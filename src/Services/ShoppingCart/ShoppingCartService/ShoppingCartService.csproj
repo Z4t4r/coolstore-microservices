@@ -14,4 +14,8 @@
     <Folder Include="Domain\Event\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <PackageReference Include="Dapr.AspNetCore" Version="1.0.0" />
+  </ItemGroup>
+
 </Project>

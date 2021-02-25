@@ -11,14 +11,6 @@ extensions:
 
 services:
 
-
-
-- name: placement
-  image: daprio/dapr
-  args: ./placement
-  bindings:
-  - port: 50005
-
 - name: webapigatewayapp
   project: src/BFFs/WebApiGateway/WebApiGateway.csproj
   bindings:
